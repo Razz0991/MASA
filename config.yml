@@ -1,0 +1,18 @@
+autoJail:
+  warnings: 3
+  jailCommand: "jail %player sjail1 10m"
+newPlayerWelcome:
+- 'Hello %player!, I am MASA, a bot designed to help answer some questions if no one else is available.'
+- 'Please remember to read the /rules and enjoy!'
+curseWords:
+- "fu+(c?k|ck?)[a-zA-Z]*"
+- "[s\\$]h(i+|!+)t[a-zA-Z]*"
+- "cunt"
+- "b[i!]+tch*"
+- "arse(holes?)?"
+- "ass(holes?)?"
+- "di+ck[a-zA-Z]*"
+- "fag+(ot)?"
+- "nig+(a|er)"
+- "p[i!]ss"
+- "cock[a-zA-Z]*"

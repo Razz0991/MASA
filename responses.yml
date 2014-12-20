@@ -1,0 +1,15 @@
+hello:
+- 'Hey'
+- 'Hello'
+- 'Hi %player'
+where:
+  is:
+  - '%pathfind'
+jail:
+- '%jailplayer'
+give|get:
+  reports|report:
+  - '%getreports'
+delete:
+  reports|report:
+  - '%deletereports'

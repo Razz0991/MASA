@@ -1,0 +1,71 @@
+name: MASA
+main: au.com.mineauz.masa.MASA
+version: 1.1.1 Beta
+author: _Razz_
+
+commands:
+  masa:
+    description: Default MASA Command
+    usage: /<command> [args...]
+    permission: masa.masa
+    permisison-message: You don't have <permission>
+  lot:
+    description: Basic lot commands (For MASA)
+    usage: /<command> <argument> <lot name>
+    permission: masa.lot
+    permission-message: You don't have <permission>
+  sign:
+    description: Sign changing commands (For MASA)
+    usage: /<command> <argument>...
+    permission: masa.sign
+    permission-message: You don't have <permission>
+  meta:
+    description: Allows player to modify item Meta
+    usage: /<command> <name OR lore> <Text In here>
+    permission: masa.meta
+    permission-message: You don't have permission to modify item meta!
+  owner:
+    description: Change a horses owner
+    usage: /<command> <New_Owner>
+    permission: masa.owner
+    permission-message: You don't have <permission>
+  
+
+permissions:
+  masa.*:
+    description: All MASA permissions
+    children:
+      masa.destination.add: true
+      masa.destination.remove: true
+      masa.admin: true
+      masa.reload: true
+      masa.sign: true
+      masa.say: true
+      masa.meta: true
+  masa.destination.add:
+    description: Allows a player to add a destination to MASA.
+    default: op
+  masa.destination.remove:
+    description: Allows a player to remove a destination from MASA.
+    default: op
+  masa.admin:
+    description: Allows a player to bypass MASA's protections.
+    default: op
+  masa.reload:
+    description: Allows a player to reload MASA's configs.
+    default: op
+  masa.sign:
+    description: Allows a player to change signs.
+    default: op
+  masa.say:
+    description: Allows a player to make masa say something.
+    default: op
+  masa.meta:
+    description: Allows the modification of Item Meta.
+    default: op
+  masa.owner:
+    description: Allows a player to change a horses owner.
+    default: true
+  masa.owner.bypass:
+    description: Allows a player to bypass horse owner permissions.
+    default: op

@@ -1,0 +1,127 @@
+MatchBranch mb1 = new MatchBranch("main");
+MatchBranch mb2 = new MatchBranch("how");
+MatchBranch mb3 = new MatchBranch("become");
+MatchBranch mb4 = new MatchBranch("vip");
+MatchBranch mb5 = new MatchBranch("donator");
+MatchBranch mb6 = new MatchBranch("hello");
+MatchBranch mb7 = new MatchBranch("hi");
+MatchBranch mb8 = new MatchBranch("hey");
+
+mb1.addBranch(mb2);
+mb2.addBranch(mb3);
+mb3.addBranch(mb4);
+mb4.addResponse("You must donate monthly");
+mb4.addResponse("You must donate $5 or more monthly");
+mb4.addResponse("You must donate every month, on the dot.");
+mb3.addBranch(mb5);
+mb5.addResponse("You must donate $5 or more.");
+mb8.addResponse("Hey!");
+mb7.addResponse("Hi!");
+mb6.addResponse("Hello!");
+mb1.addBranch(mb8);
+mb1.addBranch(mb7);
+mb1.addBranch(mb6);
+
+System.out.println("Pattern Match: " + MASAUtils.patternMatch("hey".toLowerCase(), mb1));
+
+/*Set<String> keys = new HashSet<String>();
+keys.add("how");
+keys.add("how.be|become");
+keys.add("hello|hi|hey");
+
+MatchBranch main = new MatchBranch("main");
+
+for(String key : keys){
+	if(key.contains("|")){
+		Set<String> keyList = new HashSet<String>();
+		Set<String> keyListTemp = new HashSet<String>();
+		keyListTemp.add(key);
+		
+		while(!keyListTemp.isEmpty()){
+			Set<String> tempKeys = new HashSet<String>();
+			for(String keyTemp : keyListTemp){
+				String dupeKey = keyTemp;
+				String[] splitKey = keyTemp.split("\\.");
+				for(String skey : splitKey){
+					if(skey.contains("|")){
+						String[] skeySplit = skey.split("\\|");
+						for(String skeys : skeySplit){
+							String newdupeKey = dupeKey.replace(skey, skeys);
+							if(newdupeKey.contains("|")){
+								tempKeys.add(newdupeKey);
+							}
+							else{
+								keyList.add(newdupeKey);
+							}
+						}
+					}
+				}
+			}
+			keyListTemp.clear();
+			keyListTemp.addAll(tempKeys);
+		}
+		
+		for(String lkey : keyList){
+			String[] skeys = lkey.split("\\.");
+			MatchBranch curBranch = main;
+			for(String skey : skeys){
+				if(curBranch.hasBranches()){
+					boolean hasBranch = true;
+					for(MatchBranch branch : curBranch.getBranches()){
+						if(branch.getBranchName().equals(skey)){
+							curBranch = branch;
+							hasBranch = true;
+							break;
+						}
+						else{
+							hasBranch = false;
+						}
+					}
+					if(!hasBranch){
+						MatchBranch newBranch = new MatchBranch(skey);
+						System.out.println("1 New Branch: " + skey + " in " + curBranch.getBranchName());
+						curBranch.addBranch(newBranch);
+						curBranch = newBranch;
+					}
+				}
+				else{
+					MatchBranch newBranch = new MatchBranch(skey);
+					curBranch.addBranch(newBranch);
+					System.out.println("2 New Branch: " + skey + " in " + curBranch.getBranchName());
+					curBranch = newBranch;
+				}
+			}
+		}
+	}
+	else{
+		String[] skeys = key.split("\\.");
+		MatchBranch curBranch = main;
+		for(String skey : skeys){
+			if(curBranch.hasBranches()){
+				boolean hasBranch = true;
+				for(MatchBranch branch : curBranch.getBranches()){
+					if(branch.getBranchName().equals(skey)){
+						curBranch = branch;
+						hasBranch = true;
+						break;
+					}
+					else{
+						hasBranch = false;
+					}
+				}
+				if(!hasBranch){
+					MatchBranch newBranch = new MatchBranch(skey);
+					System.out.println("3 New Branch: " + skey + " in " + curBranch.getBranchName());
+					curBranch.addBranch(newBranch);
+					curBranch = newBranch;
+				}
+			}
+			else{
+				MatchBranch newBranch = new MatchBranch(skey);
+				curBranch.addBranch(newBranch);
+				System.out.println("4 New Branch: " + skey + " in " + curBranch.getBranchName());
+				curBranch = newBranch;
+			}
+		}
+	}
+}*/
